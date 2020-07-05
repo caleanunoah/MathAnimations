@@ -12,32 +12,16 @@ ax = plt.axes(projection="3d")
 z_line = np.linspace(0, 10, 100)
 x_line = np.cos(z_line)
 y_line = np.sin(z_line)
-#ax.plot3D(x_line, y_line, z_line, 'gray')
-
-#x = [1, 2, 3, 4, 5, 6, 7, 8]
-#y = [3, 4, 5, 6, 7, 8, 9, 10]
-#z = [5, 6, 7, 8, 9, 10, 11, 12]
+ax.plot3D(x_line, y_line, z_line, 'gray')
+ax.set_title("Euler's Formula in 3D")
 
 for i in range(0, len(x_line)-1):
-    #print("X values in this iteration")
-    #print(x[i])
-    #print(x[i+1])
-    #print("Y values in this iteration")
-    #print(y[i])
-    #print(y[i + 1])
-    #print("Z values in this iteration")
-    #print(z[i])
-    #print(z[i + 1])
-    #ax.plot3D([x[i], x[i+1]], [y[i], y[i+1]], [z[i], z[i+1]], 'gray')
-    ax.plot3D([x_line[i], x_line[i + 1]], [y_line[i], y_line[i + 1]], [z_line[i], z_line[i + 1]], 'gray')
+    #ax.plot3D([x_line[i], x_line[i + 1]], [y_line[i], y_line[i + 1]], [z_line[i], z_line[i + 1]], 'gray')
+    ax.scatter3D([x_line[i], x_line[i + 1]], [y_line[i], y_line[i + 1]], [z_line[i], z_line[i + 1]], c= [z_line[i], z_line[i + 1]], cmap="Greens");
     plt.pause(0.05)
 
 plt.show()
-#ax.plot3D(x, y, z, 'gray')
 
-#ax.scatter3D(x_line, y_line, z_line, c=z_line );
-
-#ax.set_title("Euler's Formula in 3D")
 
 
 
