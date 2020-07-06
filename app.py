@@ -1,20 +1,21 @@
 import time
-
 import numpy as np
+from funcs import display_funcs
 import matplotlib.pyplot as plt
 from math import pi
+
 
 def tellme(s):
     print(s)
     plt.title(s, fontsize=12)
     plt.draw()
 
-
+# Set up the figure
 plt.clf()
 plt.setp(plt.gca())
 
-tellme('Welcome, click to begin')
-
+# Enter the tutorial, prompt user to begin
+display_funcs.tellme(plt, 'Welcome, click to begin')
 plt.waitforbuttonpress()
 
 while True:
@@ -24,22 +25,16 @@ while True:
     plt.plot(w_line, y1_line, 'red', label="sin")
     plt.plot(w_line, y2_line, 'black', label="cosine")
 
-    tellme('Remember Sine and Cosine? Click for yes')
+    display_funcs.tellme(plt, 'Remember Sine and Cosine? Click to continue...')
     plt.waitforbuttonpress()
 
     while True:
-        plt.plot(w_line, y2_line, 'red', label="cosine")
-        plt.pause(1)
-        #break
-
         # Set up plots
         fig = plt.figure()
         ax = fig.add_subplot(1, 2, 2, projection='3d')
         ax2 = fig.add_subplot(1, 2, 1, projection='3d')
-        # ax = plt.axes(projection="3d")
-        # Set the rotation for interactive 3D plot
 
-        # set up the x and y for the
+        # set up the x and y for the euler animation
         z_line = np.linspace(0, 10, 100)
         x_line = np.cos(z_line)
         y_line = np.sin(z_line)
