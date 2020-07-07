@@ -14,8 +14,13 @@ plt.close(1)  # keep me for only one window open at a time
 
 # set up the axis and functions to be plotted
 w_line = np.linspace(0, 2 * pi, 100)
+line = np.linspace(-2, 2, 100)
+lin2 = np.zeros(100)
 y1_line = np.cos(w_line)
 y2_line = np.sin(w_line)
+
+# Add some axes outline for visual aid
+axs[0, 0].plot(line, lin2, color="gray")
 
 # Plot origin for circle (visually more appealing)
 axs[0, 0].scatter(x=0, y=0)
