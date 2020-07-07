@@ -4,13 +4,6 @@ from funcs import display_funcs
 import matplotlib.pyplot as plt
 from math import pi
 
-
-def tellme(s):
-    print(s)
-    plt.title(s, fontsize=12)
-    plt.draw()
-
-
 # Set up the figure
 plt.clf()
 plt.setp(plt.gca())
@@ -18,62 +11,47 @@ plt.setp(plt.gca())
 # Make two subplots for explaining sine + cosine relation to circles
 fig, axs = plt.subplots(2, 2)
 
+# set up the axis and functions to be plotted
 w_line = np.linspace(0, 2 * pi, 100)
 y1_line = np.cos(w_line)
 y2_line = np.sin(w_line)
 
-# Plot origins
+# Plot origin for circle (visually more appealing)
 axs[0, 0].scatter(x=0, y=0)
-#axs[1, 0].scatter(x=0, y=0)
-# Plot gray outline of circles to be traced
-#axs[0, 0].plot(np.cos(w_line), np.sin(w_line), 'gray')
-#axs[1, 0].plot(np.cos(w_line), np.sin(w_line), 'gray')
-# Plot gray outline of sine and cosine waves to be traced
-axs[0, 1].plot(w_line, y2_line, 'gray' ) #  SINE
-#axs[0, 1].set(xlim=(-1, 1 ), ylim=(-1, 1 ))
-# Set the axis limits to +/-1
-axs[1, 0].plot(w_line, y1_line, 'gray' ) #  COSINE
-#axs[1, 1].set(xlim=(-1, 1 ), ylim=(-1, 1 ))
+axs[0, 1].set(xlim=(-3, 3), ylim=(-2, 2))
 
+# Plot gray outline of sine
+axs[0, 1].plot(w_line, y2_line, 'gray' ) # sine
+axs[0, 1].set(xlim=(0, 2*pi), ylim=(-2, 2))  # sine
+
+# Plot gray outline of cosine
+axs[1, 0].plot(y1_line, w_line, 'gray' )  # cosine
+axs[1, 0].set(xlim=(-2, 2), ylim=(0, 2*pi))  # cosine
+
+# wait for user input and close other figures
 plt.waitforbuttonpress()
-#plt.close(1)
+plt.close(1)  # keep me
 
 while True:
-    #axs[0, 0].plot(np.cos(w_line), np.sin(w_line), 'green')
-    #axs[0, 1].plot(np.cos(w_line), 'red')
-
     for i in range(0, len(w_line) - 1):
         # top circle
-        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')
-        axs[0, 0].axis('equal')
-        axs[0, 0].set(xlim=(-3 , 3), ylim=(-2 , 2))
-        # bottom circle
-        #axs[1, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')
-        #axs[1, 0].axis('equal')
-        #axs[1, 0].set(xlim=(-3 , 3), ylim=(-2 , 2))
-        # Plot the cosine
-        """axs[1, 0].plot([w_line[i], w_line[i + 1]], [y1_line[i], y1_line[i + 1]], 'red' )
-        axs[1, 0].axis('equal')
-        axs[0, 0].set(xlim=(-3, 3), ylim=(-2, 2))"""
-        axs[1, 0].plot([w_line[i], w_line[i + 1]], [y1_line[i], y1_line[i + 1]], 'red')
-        axs[1, 0].axis('equal')
-        #axs[1, 0].set(xlim=(0, 2*pi), ylim=(-1, 1))
-        # Plot the sine
-        axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], 'black' )
-        axs[0, 1].axis('equal')
-        #axs[0, 1].set(xlim=(0, 2*pi), ylim=(-1, 1))
+        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
+        axs[0, 0].set(xlim=(-2, 2), ylim=(-2 , 2)) # circle
+        # cosine under circle
+        axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], 'red')  # cosine
+        # sine to right of circle
+        axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], 'black')  # sine
         plt.pause(0.05)
     fig.tight_layout()
     plt.show()
     plt.close(1)
     #break;
 
-# Plot cosine animation on row 2
+"""# Plot cosine animation on row 2
 axs[1, 0].scatter(x=0, y=0)
 axs[1, 0].plot(np.cos(w_line), np.sin(w_line), 'green')
-axs[1, 1].plot(np.sin(w_line), 'blue')
+axs[1, 1].plot(np.sin(w_line), 'blue')"""
 
-#display_funcs.tellme(plt, 'Remember Sine and Cosine? Click to continue...')
 plt.waitforbuttonpress()
 
 while True:
