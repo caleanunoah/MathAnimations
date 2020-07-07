@@ -10,6 +10,7 @@ plt.setp(plt.gca())
 
 # Make two subplots for explaining sine + cosine relation to circles
 fig, axs = plt.subplots(2, 2)
+plt.close(1)  # keep me for only one window open at a time
 
 # set up the axis and functions to be plotted
 w_line = np.linspace(0, 2 * pi, 100)
@@ -21,19 +22,24 @@ axs[0, 0].scatter(x=0, y=0)
 axs[0, 1].set(xlim=(-3, 3), ylim=(-2, 2))
 
 # Plot gray outline of sine
-axs[0, 1].plot(w_line, y2_line, 'gray' ) # sine
+axs[0, 1].plot(w_line, y2_line, 'gray')  # sine
 axs[0, 1].set(xlim=(0, 2*pi), ylim=(-2, 2))  # sine
 
 # Plot gray outline of cosine
 axs[1, 0].plot(y1_line, w_line, 'gray' )  # cosine
 axs[1, 0].set(xlim=(-2, 2), ylim=(2*pi, 0))  # cosine
 
-# wait for user input and close other figures
+# Write welcome message.
+axs[1, 1].text(x=0.2, y=0.8, s="Click to continue.")
+
+"""# wait for user input
 plt.waitforbuttonpress()
-plt.close(1)  # keep me
 
 while True:
     for i in range(0, len(w_line) - 1):
+        # Draw a ball that will trace all lines
+        axs[0, 0].scatter([w_line[i], w_line[i + 1]], [w_line[i], w_line[i + 1]])
+
         # top circle
         axs[0, 0].text(x=-1.8, y=1.5, s="Unit Circle")
         axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
@@ -47,9 +53,10 @@ while True:
         plt.pause(0.05)
     fig.tight_layout()
     plt.show()
-    break;
-axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")
-#plt.text(x=0.2, y=0.5, s="Click to continue.")
+    break
+print("Finished Animation")
+   
+axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")"""
 plt.waitforbuttonpress()
 
 
@@ -58,10 +65,13 @@ while True:
     plt.close(1)
     fig = plt.figure()
     ax = plt.axes(projection="3d")
+    ax.view_init(0, 0)  # sine view
+    #ax.view_init(0, 90)  # cosine view
     #ax2 = fig.add_subplot(1, 2, 1, projection='3d')
+    #ax2.view_init(90, 90) # unit circle (top down) view
 
     # set up the x and y for the euler animation
-    z_line = np.linspace(0, 10, 100)
+    z_line = np.linspace(0, 2*pi, 100)
     x_line = np.cos(z_line)
     y_line = np.sin(z_line)
 
