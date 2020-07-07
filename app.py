@@ -26,7 +26,6 @@ axs[0, 1].set(xlim=(0, 2*pi), ylim=(-2, 2))  # sine
 
 # Plot gray outline of cosine
 axs[1, 0].plot(y1_line, w_line, 'gray' )  # cosine
-#axs[1, 0].set(xlim=(-2, 2), ylim=(0, 2*pi))  # cosine
 axs[1, 0].set(xlim=(-2, 2), ylim=(2*pi, 0))  # cosine
 
 # wait for user input and close other figures
@@ -36,24 +35,23 @@ plt.close(1)  # keep me
 while True:
     for i in range(0, len(w_line) - 1):
         # top circle
+        axs[0, 0].text(x=-1.8, y=1.5, s="Unit Circle")
         axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
         axs[0, 0].set(xlim=(-2, 2), ylim=(-2, 2))  # circle
         # cosine under circle
+        axs[1, 0].text(x=-1.8, y=1, s="Cosine")
         axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], 'red')  # cosine
         # sine to right of circle
+        axs[0, 1].text(x=0.2, y=1.5, s="Sine")
         axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], 'black')  # sine
         plt.pause(0.05)
     fig.tight_layout()
     plt.show()
-    plt.close(1)
-    #break;
-
-"""# Plot cosine animation on row 2
-axs[1, 0].scatter(x=0, y=0)
-axs[1, 0].plot(np.cos(w_line), np.sin(w_line), 'green')
-axs[1, 1].plot(np.sin(w_line), 'blue')"""
-
+    break;
+axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")
+#plt.text(x=0.2, y=0.5, s="Click to continue.")
 plt.waitforbuttonpress()
+
 
 while True:
     # Set up plots
@@ -89,7 +87,6 @@ while True:
         plt.show()
         break;
     break;
-#break
 
 # Keep plot up until user exits, without it automatically closes after 2 mouse clicks
 plt.show()
