@@ -32,17 +32,18 @@ axs[1, 0].set(xlim=(-2, 2), ylim=(2*pi, 0))  # cosine
 # Write welcome message.
 axs[1, 1].text(x=0.2, y=0.8, s="Click to continue.")
 
-"""# wait for user input
+# wait for user input
 plt.waitforbuttonpress()
 
 while True:
     for i in range(0, len(w_line) - 1):
         # Draw a ball that will trace all lines
-        axs[0, 0].scatter([w_line[i], w_line[i + 1]], [w_line[i], w_line[i + 1]])
+        axs[0, 0].scatter(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), color="green")
+        axs[0, 0].scatter(np.cos([w_line[i-1], w_line[i]]), np.sin([w_line[i-1], w_line[i]]), color="white")
 
         # top circle
         axs[0, 0].text(x=-1.8, y=1.5, s="Unit Circle")
-        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
+        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'lightgreen')  # circle
         axs[0, 0].set(xlim=(-2, 2), ylim=(-2, 2))  # circle
         # cosine under circle
         axs[1, 0].text(x=-1.8, y=1, s="Cosine")
@@ -55,8 +56,9 @@ while True:
     plt.show()
     break
 print("Finished Animation")
-   
-axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")"""
+
+""" 
+axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")
 plt.waitforbuttonpress()
 
 
@@ -100,7 +102,7 @@ while True:
 
 # Keep plot up until user exits, without it automatically closes after 2 mouse clicks
 plt.show()
-
+"""
 
 
 
