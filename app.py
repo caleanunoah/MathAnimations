@@ -37,17 +37,27 @@ plt.waitforbuttonpress()
 
 while True:
     for i in range(0, len(w_line) - 1):
-        # Draw a ball that will trace all lines
-        axs[0, 0].scatter(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), color="green")
-        axs[0, 0].scatter(np.cos([w_line[i-1], w_line[i]]), np.sin([w_line[i-1], w_line[i]]), color="white")
+        # Draw a ball that will trace circle
+        axs[0, 0].scatter(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), color="green", s=30, marker="o")
+        axs[0, 0].scatter(np.cos([w_line[i-1], w_line[i]]), np.sin([w_line[i-1], w_line[i]]), color="white", s=30, marker="o")
 
         # top circle
         axs[0, 0].text(x=-1.8, y=1.5, s="Unit Circle")
-        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'lightgreen')  # circle
+        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
         axs[0, 0].set(xlim=(-2, 2), ylim=(-2, 2))  # circle
+
+        # Ball that traces cosine
+        axs[1, 0].scatter([y1_line[i], y1_line[i + 1]],  [w_line[i], w_line[i + 1]], color="red", s=30, marker="o")
+        axs[1, 0].scatter([y1_line[i-1], y1_line[i]],  [w_line[i-1], w_line[i]], color="white", s=30, marker="o")
+
         # cosine under circle
         axs[1, 0].text(x=-1.8, y=1, s="Cosine")
         axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], 'red')  # cosine
+
+        # ball that traces sine
+        axs[0, 1].scatter([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], color="black", s=30, marker="o")
+        axs[0, 1].scatter([w_line[i-1], w_line[i]], [y2_line[i-1], y2_line[i]], color="white", s=30, marker="o")
+
         # sine to right of circle
         axs[0, 1].text(x=0.2, y=1.5, s="Sine")
         axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], 'black')  # sine
