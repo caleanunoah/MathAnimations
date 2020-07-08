@@ -16,22 +16,27 @@ plt.close(1)  # keep me for only one window open at a time
 w_line = np.linspace(0, 2 * pi, 100)
 line = np.linspace(-2, 2, 100)
 lin2 = np.zeros(100)
+lin3 = np.linspace(0, 2*pi, 100)
+#lin4 = np.linspace(2*pi, 0, 100)
 y1_line = np.cos(w_line)
 y2_line = np.sin(w_line)
 
-# Add some axes outline for visual aid
-axs[0, 0].plot(line, lin2, color="gray")
-
 # Plot origin for circle (visually more appealing)
-axs[0, 0].scatter(x=0, y=0)
 axs[0, 1].set(xlim=(-3, 3), ylim=(-2, 2))
+
+# Add some axes outline for visual aid
+axs[0, 0].plot(line, lin2, color="#ffd51c")  # horizontal line --circle
+axs[0, 0].plot(lin2, line, color="#1c8eff")  # vertical line --circle
+
+#axs[1, 0].plot(lin2, lin3, color="#e0e0e0")  # vertical line
+#axs[0, 1].plot(lin3, lin2, color="#e0e0e0")  # horizontal line
 
 # Plot gray outline of sine
 axs[0, 1].plot(w_line, y2_line, 'gray')  # sine
 axs[0, 1].set(xlim=(0, 2*pi), ylim=(-2, 2))  # sine
 
 # Plot gray outline of cosine
-axs[1, 0].plot(y1_line, w_line, 'gray' )  # cosine
+axs[1, 0].plot(y1_line, w_line, 'gray')  # cosine
 axs[1, 0].set(xlim=(-2, 2), ylim=(2*pi, 0))  # cosine
 
 # Write welcome message.
@@ -52,20 +57,20 @@ while True:
         axs[0, 0].set(xlim=(-2, 2), ylim=(-2, 2))  # circle
 
         # Ball that traces cosine
-        axs[1, 0].scatter([y1_line[i], y1_line[i + 1]],  [w_line[i], w_line[i + 1]], color="red", s=30, marker="o")
+        axs[1, 0].scatter([y1_line[i], y1_line[i + 1]],  [w_line[i], w_line[i + 1]], color="green", s=30, marker="o")
         axs[1, 0].scatter([y1_line[i-1], y1_line[i]],  [w_line[i-1], w_line[i]], color="white", s=30, marker="o")
 
         # cosine under circle
         axs[1, 0].text(x=-1.8, y=1, s="Cosine")
-        axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], 'red')  # cosine
+        axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], '#ffd51c')  # cosine
 
         # ball that traces sine
-        axs[0, 1].scatter([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], color="black", s=30, marker="o")
+        axs[0, 1].scatter([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], color="green", s=30, marker="o")
         axs[0, 1].scatter([w_line[i-1], w_line[i]], [y2_line[i-1], y2_line[i]], color="white", s=30, marker="o")
 
         # sine to right of circle
         axs[0, 1].text(x=0.2, y=1.5, s="Sine")
-        axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], 'black')  # sine
+        axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], '#1c8eff')  # sine
         plt.pause(0.05)
     fig.tight_layout()
     plt.show()
