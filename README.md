@@ -6,7 +6,7 @@ A short python app to help engineering students visualize mathematics in differe
 MathAnimations is a personal project I made because I wished I had these resources when I was going through school at UBC. I used the Python language to visualize sine and cosine waves with relation to Euler's Formula without the use of any triangles! Trigonometry is misleading because triangle ratios are just one aspect of these periodic functions, let's explore another!
 
 ## Author
- - [Noah Caleneau](https://github.com/caleanunoah)
+ - [Noah Caleanu](https://github.com/caleanunoah)
 
 
 ## License
