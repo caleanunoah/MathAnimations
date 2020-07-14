@@ -10,11 +10,11 @@ MathAnimations is a personal project I made because I wished I had these resourc
 
 
 ## License
-
+```
 For libraries used in this project, copyright goes to
 © Copyright 2002 - 2012 John Hunter, Darren Dale, Eric Firing, Michael Droettboom and the Matplotlib development team; 2012 - 2018 The Matplotlib development team
 
-```
+
 For any new content made in this project copyright goes to Noah Caleanu
 
 Copyright (C) 2020 Noah Caleanu
