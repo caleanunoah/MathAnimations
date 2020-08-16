@@ -1,128 +1,57 @@
-import time
-import numpy as np
-from funcs import display_funcs
 import matplotlib.pyplot as plt
-from math import pi
+from functions.graph2D import graph2D
+from functions.graph3D import graph3D
+from functions.setup_graphs import setup2D, setup3D
 
-# Set up the figure
-plt.clf()
-plt.setp(plt.gca())
-
-# Make two subplots for explaining sine + cosine relation to circles
-fig, axs = plt.subplots(2, 2)
-plt.close(1)  # keep me for only one window open at a time
-
-# set up the axis and functions to be plotted
-w_line = np.linspace(0, 2 * pi, 100)
-line = np.linspace(-2, 2, 100)
-lin2 = np.zeros(100)
-lin3 = np.linspace(0, 2*pi, 100)
-#lin4 = np.linspace(2*pi, 0, 100)
-y1_line = np.cos(w_line)
-y2_line = np.sin(w_line)
-
-# Plot origin for circle (visually more appealing)
-axs[0, 1].set(xlim=(-3, 3), ylim=(-2, 2))
-
-# Add some axes outline for visual aid
-axs[0, 0].plot(line, lin2, color="#ffd51c")  # horizontal line --circle
-axs[0, 0].plot(lin2, line, color="#1c8eff")  # vertical line --circle
-
-#axs[1, 0].plot(lin2, lin3, color="#e0e0e0")  # vertical line
-#axs[0, 1].plot(lin3, lin2, color="#e0e0e0")  # horizontal line
-
-# Plot gray outline of sine
-axs[0, 1].plot(w_line, y2_line, 'gray')  # sine
-axs[0, 1].set(xlim=(0, 2*pi), ylim=(-2, 2))  # sine
-
-# Plot gray outline of cosine
-axs[1, 0].plot(y1_line, w_line, 'gray')  # cosine
-axs[1, 0].set(xlim=(-2, 2), ylim=(2*pi, 0))  # cosine
-
-# Write welcome message.
-axs[1, 1].text(x=0.2, y=0.8, s="Click to continue.")
+# Set up a plot, figure, the initial colors
+[fig, axs, line, lin2, w_line, y1_line, y2_line] = setup2D()
+[ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
 
 # wait for user input
 plt.waitforbuttonpress()
 
+# If user clicks on figure, draw out 2D Euler relation
+# Notice the relationship between Sine's amplitude and the y-coordinate of the unit circle.
+# Likewise, notice the relationship between Cosine's amplitude and the x-coordinate of the unit circle
 while True:
-    for i in range(0, len(w_line) - 1):
-        # Draw a ball that will trace circle
-        axs[0, 0].scatter(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), color="green", s=30, marker="o")
-        axs[0, 0].scatter(np.cos([w_line[i-1], w_line[i]]), np.sin([w_line[i-1], w_line[i]]), color="white", s=30, marker="o")
+    # Graph the Euler Relation in 2D
+    fig.suptitle('Euler in 2D', fontsize=16)
 
-        # top circle
-        axs[0, 0].text(x=-1.8, y=1.5, s="Unit Circle")
-        axs[0, 0].plot(np.cos([w_line[i], w_line[i + 1]]), np.sin([w_line[i], w_line[i + 1]]), 'green')  # circle
-        axs[0, 0].set(xlim=(-2, 2), ylim=(-2, 2))  # circle
-
-        # Ball that traces cosine
-        axs[1, 0].scatter([y1_line[i], y1_line[i + 1]],  [w_line[i], w_line[i + 1]], color="green", s=30, marker="o")
-        axs[1, 0].scatter([y1_line[i-1], y1_line[i]],  [w_line[i-1], w_line[i]], color="white", s=30, marker="o")
-
-        # cosine under circle
-        axs[1, 0].text(x=-1.8, y=1, s="Cosine")
-        axs[1, 0].plot([y1_line[i], y1_line[i + 1]], [w_line[i], w_line[i + 1]], '#ffd51c')  # cosine
-
-        # ball that traces sine
-        axs[0, 1].scatter([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], color="green", s=30, marker="o")
-        axs[0, 1].scatter([w_line[i-1], w_line[i]], [y2_line[i-1], y2_line[i]], color="white", s=30, marker="o")
-
-        # sine to right of circle
-        axs[0, 1].text(x=0.2, y=1.5, s="Sine")
-        axs[0, 1].plot([w_line[i], w_line[i + 1]], [y2_line[i], y2_line[i + 1]], '#1c8eff')  # sine
-        plt.pause(0.05)
+    graph2D(axs, line, lin2, w_line, y1_line, y2_line)
     fig.tight_layout()
-    plt.show()
-    break
-print("Finished Animation")
+    #plt.show()
+    print("Finished 2D Animation")
 
-""" 
-axs[1, 1].text(x=0.2, y=0.5, s="Click to continue.")
+    plt.waitforbuttonpress()
+    while True:
+        # Now set up the 3D case
+        # [ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
+        graph3D(plt, ax, ax3, ax4, x_line, y_line, z_line)
+        #plt.show()
+        break
+
+    break
+
+"""
+# Now introduce a 3rd dimension,
+
 plt.waitforbuttonpress()
 
 
 while True:
-    # Set up plots
-    plt.close(1)
-    fig = plt.figure()
-    ax = plt.axes(projection="3d")
-    ax.view_init(0, 0)  # sine view
-    #ax.view_init(0, 90)  # cosine view
-    #ax2 = fig.add_subplot(1, 2, 1, projection='3d')
-    #ax2.view_init(90, 90) # unit circle (top down) view
-
-    # set up the x and y for the euler animation
-    z_line = np.linspace(0, 2*pi, 100)
-    x_line = np.cos(z_line)
-    y_line = np.sin(z_line)
-
-    # Title both subplots
-    ax.set_title("Euler's Formula 3D")  # right plot
-    #ax2.set_title("Euler's Formula 2D")  # left plot
-
-    # Draw an origin on both. Connects the subplots relative to each other
-    ax.scatter3D(xs=0, ys=0, zs=0)
-    #ax2.scatter3D(xs=0, ys=0, zs=0)
-
-    plt.waitforbuttonpress()
-    ax.plot3D(x_line, y_line, z_line, 'gray')
+    # Now set up the 3D case
+    [ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
 
     while True:
-        # Now go through and superimpose a scatter on top the Euler function helix
-        for i in range(0, len(x_line) - 1):
-            ax.scatter3D([x_line[i], x_line[i + 1]], [y_line[i], y_line[i + 1]], [z_line[i], z_line[i + 1]],
-                         c=[z_line[i], z_line[i + 1]], cmap="Greens");
-            ax.plot3D([x_line[i], x_line[i + 1]], [y_line[i], y_line[i + 1]], 0, 'green');
-            plt.pause(0.05)
-
+        graph3D(plt, ax, ax3, ax4, x_line, y_line, z_line)
         plt.show()
-        break;
-    break;
+        break
+    break
 
 # Keep plot up until user exits, without it automatically closes after 2 mouse clicks
 plt.show()
+
+
+
+
 """
-
-
-

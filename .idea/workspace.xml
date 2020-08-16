@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d6f676c-2494-4a7a-9c8f-3813c7eba7fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/functions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/graph2D.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/graph3D.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/setup_graphs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
@@ -9,6 +13,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MathAnimation" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -134,22 +141,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593984035462" />
-    <state width="1110" height="78" key="GridCell.Tab.0.bottom" timestamp="1594231639755">
+    <state width="1237" height="334" key="GridCell.Tab.0.bottom" timestamp="1597609738345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1110" height="78" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594231639755" />
-    <state width="1110" height="78" key="GridCell.Tab.0.center" timestamp="1594231639755">
+    <state width="1237" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597609738345" />
+    <state width="1237" height="334" key="GridCell.Tab.0.center" timestamp="1597609738344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1110" height="78" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594231639755" />
-    <state width="1110" height="78" key="GridCell.Tab.0.left" timestamp="1594231639754">
+    <state width="1237" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597609738344" />
+    <state width="1237" height="334" key="GridCell.Tab.0.left" timestamp="1597609738344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1110" height="78" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594231639754" />
-    <state width="1110" height="78" key="GridCell.Tab.0.right" timestamp="1594231639755">
+    <state width="1237" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597609738344" />
+    <state width="1237" height="334" key="GridCell.Tab.0.right" timestamp="1597609738344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1110" height="78" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594231639755" />
+    <state width="1237" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597609738344" />
     <state width="1899" height="356" key="GridCell.Tab.1.bottom" timestamp="1594152102888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -170,10 +177,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="202" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594073355018" />
-    <state x="0" y="690" key="com.intellij.ide.util.TipDialog" timestamp="1594228569334">
+    <state x="0" y="690" key="com.intellij.ide.util.TipDialog" timestamp="1597600728742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="690" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594228569334" />
+    <state x="0" y="690" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597600728742" />
     <state x="143" y="260" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1593983893671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
