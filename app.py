@@ -5,7 +5,7 @@ from functions.setup_graphs import setup2D, setup3D
 
 # Set up a plot, figure, the initial colors
 [fig, axs, line, lin2, w_line, y1_line, y2_line] = setup2D()
-[ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
+
 
 # wait for user input
 plt.waitforbuttonpress()
@@ -23,35 +23,14 @@ while True:
     print("Finished 2D Animation")
 
     plt.waitforbuttonpress()
+
+    [ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
+
     while True:
         # Now set up the 3D case
         # [ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
         graph3D(plt, ax, ax3, ax4, x_line, y_line, z_line)
-        #plt.show()
-        break
-
-    break
-
-"""
-# Now introduce a 3rd dimension,
-
-plt.waitforbuttonpress()
-
-
-while True:
-    # Now set up the 3D case
-    [ax, ax3, ax4, x_line, y_line, z_line] = setup3D()
-
-    while True:
-        graph3D(plt, ax, ax3, ax4, x_line, y_line, z_line)
         plt.show()
         break
+
     break
-
-# Keep plot up until user exits, without it automatically closes after 2 mouse clicks
-plt.show()
-
-
-
-
-"""
