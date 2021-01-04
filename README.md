@@ -13,23 +13,15 @@ A personal project I made to help other engineering students understand Euler's 
 * [Getting Started](#getting-started)
     * [System Requirements / Prerequisites](#system-requirements--prerequisites)
     * [Installation](#installation)
+* [Topics Covered](#topics-covered) 
 * [License](#open-source-license)
 * [Usage/API Docs](#usage--api-docs)
 * [Pull Requests](#pull-requests)
 * [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
-* [User Stories - Phase 1](#user-stories-for-phase-1---data-model--console-based-user-interface)
-* [User Stories - Phase 2](#user-stories-for-phase-2---data-persistence)
-* [User Stories - Phase 3](#user-stories-for-phase-3---graphical-user-interface-)
-* [User Stories - Phase 4](#user-stories-for-phase-4---implementing-design-concepts-)
 
 ## About This Project
 
-This project is a File/Object converter utility for software developers. 
-Many software developers require conversion of files and data to another forms such as JSON
-to push to their database or for data analysis. Developers often do not want to use free online
-tools to convert their data due to privacy reasons. This open source software can be used as
-a utility in their code. Moreover, this project is fully extensible.
+This project is for those who don't understand math without a visual guide. I want to build a tool for using matplotlib to visualize mathematics in new way!
 
 ## Built With
 * [java](https://www.java.com/en/)
@@ -37,10 +29,7 @@ a utility in their code. Moreover, this project is fully extensible.
 * [Apache-POI](https://poi.apache.org/)
 
 ## How It Works
-Utilizes open source Apache File reader APIs and object construction to perform the necessary file 
-conversions. Uses those scanners to Stream read every file and perform necessary object construction / conversion.
-Custom API docs for this software's usage will be released in the future.
-Note : This software is not a product of Apache software foundation. 
+
 
 ## Developed By
 
@@ -82,6 +71,10 @@ git clone https://github.students.cs.ubc.ca/CPSC210-2020W-T1/project_w6y2b.git
 
 2. Open Source Code on any java IDE.
 
+
+## Topics Covered
+
+* Euler's Equation (eiπ + 1 = 0) 
 
 ## Open Source License
 
